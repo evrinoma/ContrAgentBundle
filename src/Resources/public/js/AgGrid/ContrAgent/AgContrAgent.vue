@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="ui segment block">
-            <h3 class="ui header">Project viewer</h3>
+            <h3 class="ui header">ContrAgent viewer</h3>
             <div class="ui segment segment_top">
                 <div class="ui two column very relaxed grid">
                     <!--                    <div style="background-color:#ccc; padding: 2rem">left side column</div>-->
@@ -40,7 +40,7 @@
     import DatePicker from '../../components/AgGrid/DatePicker';
 
     export default {
-        name: 'agProjectVue',
+        name: 'agContrAgentVue',
         data() {
             return {
                 gridOptions: null,
@@ -62,7 +62,7 @@
                 params.api.sizeColumnsToFit();
             },
             loadRowData() {
-                fetch(location.protocol + '//' + location.hostname + '/evrinoma/api/project')
+                fetch(location.protocol + '//' + location.hostname + '/evrinoma/api/contr_agent')
                     .then(result => result.json())
                     .then(rowData => this.rowData = rowData);
             },
@@ -72,7 +72,7 @@
             },
         },
         beforeMount() {
-            fetch(location.protocol + '//' + location.hostname + '/evrinoma/api/project/column_defs')
+            fetch(location.protocol + '//' + location.hostname + '/evrinoma/api/contr_agent/column_defs')
                 .then(result => result.json())
                 .then(rowData => this.columnDefs = rowData);
             //помпонеты редактирования

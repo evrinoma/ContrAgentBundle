@@ -47,8 +47,6 @@ class BaseContrAgent
      */
     private $inn;
 
-
-
     /**
      * @var \DateTime
      * @Type("DateTime<'d-m-Y'>")

@@ -4,8 +4,8 @@
 namespace Evrinoma\ContrAgentBundle\Manager;
 
 
-use Evrinoma\GridBundle\AgGrid\ColumnDef;
 use Evrinoma\ContrAgentBundle\Entity\BaseContrAgent;
+use Evrinoma\GridBundle\AgGrid\ColumnDef;
 use Evrinoma\UtilsBundle\Manager\AbstractEntityManager;
 use Evrinoma\UtilsBundle\Rest\RestTrait;
 
@@ -49,26 +49,32 @@ class ContrAgentManager extends AbstractEntityManager
 
     public function getColumnDefs()
     {
+
         $id = new ColumnDef();
         $id->setType(ColumnDef::NUMBER_COLUMN)->setHeaderName('ID')->setField('id')->setWidth(1)->setEditable()->setResizable();
 
-        $name = new ColumnDef();
-        $name->setHeaderName('Название')->setField('name')->setWidth(200);
+        $active = new ColumnDef();
+        $active->setHeaderName('Активность')->setField('active')->setWidth(1);
 
-        $dateStart = new ColumnDef();
-        $dateStart->setType(ColumnDef::DATE_COLUMN)->setHeaderName('Дата начала')->setField('dateStart')->setWidth(5)->setResizable()
-            ->setCellEditor(ColumnDef::CELL_EDITOR_DATE_PICKER)
-        ;
+        $shortName = new ColumnDef();
+        $shortName->setHeaderName('Название')->setField('shortName')->setWidth(70);
 
-        $dateFinish = new ColumnDef();
-        $dateFinish->setType(ColumnDef::DATE_COLUMN)->setHeaderName('Дата окончания')->setField('dateFinish')->setWidth(5)->setResizable()
-            ->setCellEditor(ColumnDef::CELL_EDITOR_DATE_PICKER)
-        ;
+        $fullName = new ColumnDef();
+        $fullName->setHeaderName('Полное название')->setField('fullName')->setWidth(150)->setCellEditor(ColumnDef::CELL_EDITOR_AG_LARGE_TEXT_CELL_EDITOR);
 
-        $description = new ColumnDef();
-        $description->setHeaderName('Описание')->setField('description')->setWidth(140)->setCellEditor(ColumnDef::CELL_EDITOR_AG_LARGE_TEXT_CELL_EDITOR);
+        $inn = new ColumnDef();
+        $inn->setHeaderName('ИНН')->setField('inn')->setWidth(50);
 
-        return [$id, $name, $dateStart, $dateFinish, $description];
+        $createdAt = new ColumnDef();
+        $createdAt->setType(ColumnDef::DATE_COLUMN)->setHeaderName('Дата создания')->setField('createdAt')->setWidth(20)->setResizable()
+            ->setCellEditor(ColumnDef::CELL_EDITOR_DATE_PICKER);
+
+        $updatedAt = new ColumnDef();
+        $updatedAt->setType(ColumnDef::DATE_COLUMN)->setHeaderName('Дата обновления')->setField('updatedAt')->setWidth(20)->setResizable()
+            ->setCellEditor(ColumnDef::CELL_EDITOR_DATE_PICKER);
+
+
+        return [$id, $active, $fullName, $shortName, $inn, $createdAt, $updatedAt];
     }
 
     public function getRestStatus(): int

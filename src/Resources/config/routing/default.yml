@@ -1,0 +1,6 @@
+contr_agent:
+  path: /contr_agent
+  methods: GET
+  defaults: { _controller: Evrinoma\ContrAgentBundle\Controller\ContrAgentController::project}
+  options:
+    expose: true

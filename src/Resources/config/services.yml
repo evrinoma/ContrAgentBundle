@@ -1,0 +1,25 @@
+services:
+  Evrinoma\ContrAgentBundle\Controller\ContrAgentController:
+    alias:  evrinoma.contr_agent.controller
+    public: true
+    deprecated:
+
+  evrinoma.contr_agent.controller:
+    class: Evrinoma\ContrAgentBundle\Controller\ContrAgentController
+
+  Evrinoma\ContrAgentBundle\Controller\ContrAgentApiController:
+    alias: evrinoma.contr_agent.api.controller
+    public: true
+    deprecated:
+
+  evrinoma.contr_agent.api.controller:
+    class: Evrinoma\ContrAgentBundle\Controller\ContrAgentApiController
+    arguments:
+      - '@evrinoma.contr_agent.manager'
+
+  evrinoma.contr_agent.manager:
+    alias: Evrinoma\ContrAgentBundle\Manager\ContrAgentManager
+
+  Evrinoma\ContrAgentBundle\Manager\ContrAgentManager:
+    arguments: ['@doctrine.orm.entity_manager']
+

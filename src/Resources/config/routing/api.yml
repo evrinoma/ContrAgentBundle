@@ -1,0 +1,3 @@
+contr_agent_api:
+  resource: "@EvrinomaContrAgentBundle/Controller/ContrAgentApiController.php"
+  type: annotation

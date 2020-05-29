@@ -1,0 +1,7 @@
+project:
+  resource: "@EvrinomaContrAgentBundle/Resources/config/routing/default.yml"
+  prefix: evrinoma
+
+projectapi:
+  resource: "@EvrinomaContrAgentBundle/Resources/config/routing/api.yml"
+  prefix: evrinoma

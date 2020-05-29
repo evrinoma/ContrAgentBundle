@@ -1,8 +1,8 @@
 {
-    "name": "evrinoma/project-bundle",
-    "description": "Project",
+    "name": "evrinoma/contragent-bundle",
+    "description": "ContrAgent",
     "keywords": [
-        "Project"
+        "ContrAgent"
     ],
     "type": "symfony-bundle",
     "license": "MIT",
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Evrinoma\\ProjectBundle\\": "src/"
+            "Evrinoma\\ContrAgentBundle\\": "src/"
         },
         "exclude-from-classmap": [
             "/Tests/"

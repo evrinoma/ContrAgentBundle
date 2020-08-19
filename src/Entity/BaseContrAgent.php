@@ -4,17 +4,18 @@ namespace Evrinoma\ContrAgentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Evrinoma\UtilsBundle\Entity\ActiveTrait;
+use Evrinoma\UtilsBundle\Entity\CreateUpdateAtTrait;
 use JMS\Serializer\Annotation\Type;
 
 /**
  * Contragent
  *
- * @ORM\Table(name="contragent", indexes={@ORM\Index(name="IDX_4FBF094FB03A8386", columns={"created_id"}), @ORM\Index(name="IDX_4FBF094F896DBBDE", columns={"updated_id"})})
+ * @ORM\Table(name="contragent")
  * @ORM\Entity
  */
 class BaseContrAgent
 {
-    use ActiveTrait;
+    use ActiveTrait, CreateUpdateAtTrait;
 
 //region SECTION: Fields
     /**
@@ -46,22 +47,6 @@ class BaseContrAgent
      * @ORM\Column(name="inn", type="string", length=255, nullable=true)
      */
     private $inn;
-
-    /**
-     * @var \DateTime
-     * @Type("DateTime<'d-m-Y'>")
-     * @ORM\Column(name="created_at", type="datetime", nullable=false)
-     */
-    private $createdAt;
-
-    /**
-     * @var \DateTime
-     * @Type("DateTime<'d-m-Y'>")
-     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
-     */
-    private $updatedAt;
-
-
 //endregion Fields
 
 //region SECTION: Getters/Setters
@@ -96,25 +81,5 @@ class BaseContrAgent
     {
         return $this->inn;
     }
-
-
-
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        return $this->updatedAt;
-    }
-
 //endregion Getters/Setters
 }

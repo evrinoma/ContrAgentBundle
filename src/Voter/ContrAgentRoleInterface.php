@@ -1,11 +1,11 @@
 <?php
 
-namespace Evrinoma\ContrAgentBundle\Voiter;
+namespace Evrinoma\ContrAgentBundle\Voter;
 
 /**
  * Interface ContrAgentRoleInterface
  *
- * @package Evrinoma\ContrAgentBundle\Voiter
+ * @package Evrinoma\ContrAgentBundle\Voter
  */
 interface ContrAgentRoleInterface
 {

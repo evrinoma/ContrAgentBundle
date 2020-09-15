@@ -3,8 +3,8 @@
 
 namespace Evrinoma\ContrAgentBundle\Manager;
 
-
-use Evrinoma\ContrAgentBundle\Entity\BaseContrAgent;
+use Doctrine\ORM\EntityManagerInterface;
+use Evrinoma\ContrAgentBundle\Model\AbstractBaseContrAgent;
 use Evrinoma\GridBundle\AgGrid\ColumnDef;
 use Evrinoma\UtilsBundle\Manager\AbstractEntityManager;
 use Evrinoma\UtilsBundle\Rest\RestTrait;
@@ -22,8 +22,23 @@ class ContrAgentManager extends AbstractEntityManager
     /**
      * @var string
      */
-    protected $repositoryClass = BaseContrAgent::class;
+    protected $repositoryClass = AbstractBaseContrAgent::class;
 //endregion Fields
+
+//region SECTION: Constructor
+    /**
+     * ContrAgentManager constructor.
+     *
+     * @param EntityManagerInterface $entityManager
+     * @param string                 $repositoryClass
+     */
+    public function __construct(EntityManagerInterface $entityManager, string $repositoryClass)
+    {
+        $this->repositoryClass = $repositoryClass;
+        parent::__construct($entityManager);
+    }
+
+//endregion Constructor
 
 //region SECTION: Getters/Setters
     /**
@@ -73,7 +88,7 @@ class ContrAgentManager extends AbstractEntityManager
         $updatedAt->setType(ColumnDef::DATE_COLUMN)->setHeaderName('Дата обновления')->setField('updatedAt')->setWidth(20)->setResizable()
             ->setCellEditor(ColumnDef::CELL_EDITOR_DATE_PICKER);
 
-
+       // return [$id, $active, $inn, $createdAt, $updatedAt];
         return [$id, $active, $fullName, $shortName, $inn, $createdAt, $updatedAt];
     }
 

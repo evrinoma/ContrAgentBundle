@@ -14,12 +14,11 @@ services:
 
   evrinoma.contr_agent.api.controller:
     class: Evrinoma\ContrAgentBundle\Controller\ContrAgentApiController
-    arguments:
-      - '@evrinoma.contr_agent.manager'
+    arguments: ['@evrinoma.contr_agent.manager']
 
   evrinoma.contr_agent.manager:
     alias: Evrinoma\ContrAgentBundle\Manager\ContrAgentManager
 
   Evrinoma\ContrAgentBundle\Manager\ContrAgentManager:
-    arguments: ['@doctrine.orm.entity_manager']
+    arguments: ['@doctrine.orm.entity_manager', '%evrinoma.contr_agent.class%']
 

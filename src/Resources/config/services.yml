@@ -6,6 +6,7 @@ services:
 
   evrinoma.contr_agent.controller:
     class: Evrinoma\ContrAgentBundle\Controller\ContrAgentController
+    autowire: true
 
   Evrinoma\ContrAgentBundle\Controller\ContrAgentApiController:
     alias: evrinoma.contr_agent.api.controller
@@ -15,6 +16,7 @@ services:
   evrinoma.contr_agent.api.controller:
     class: Evrinoma\ContrAgentBundle\Controller\ContrAgentApiController
     arguments: ['@evrinoma.contr_agent.manager']
+    autowire: true
 
   evrinoma.contr_agent.manager:
     alias: Evrinoma\ContrAgentBundle\Manager\ContrAgentManager

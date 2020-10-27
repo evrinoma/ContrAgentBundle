@@ -2,7 +2,6 @@ services:
   Evrinoma\ContrAgentBundle\Controller\ContrAgentController:
     alias:  evrinoma.contr_agent.controller
     public: true
-    deprecated:
 
   evrinoma.contr_agent.controller:
     class: Evrinoma\ContrAgentBundle\Controller\ContrAgentController
@@ -11,7 +10,6 @@ services:
   Evrinoma\ContrAgentBundle\Controller\ContrAgentApiController:
     alias: evrinoma.contr_agent.api.controller
     public: true
-    deprecated:
 
   evrinoma.contr_agent.api.controller:
     class: Evrinoma\ContrAgentBundle\Controller\ContrAgentApiController

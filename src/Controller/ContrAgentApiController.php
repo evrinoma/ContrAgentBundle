@@ -6,7 +6,7 @@ namespace Evrinoma\ContrAgentBundle\Controller;
 use Evrinoma\ContrAgentBundle\Manager\ContrAgentManager;
 use Evrinoma\UtilsBundle\Controller\AbstractApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Swagger\Annotations as SWG;
+use OpenApi\Annotations as OA;
 
 /**
  * Class ContrAgentApiController
@@ -47,8 +47,8 @@ final class ContrAgentApiController extends AbstractApiController
 
     /**
      * @Rest\Get("/api/contr_agent", options={"expose"=true}, name="api_contr_agent")
-     * @SWG\Get(tags={"contr_agent"})
-     * @SWG\Response(response=200,description="Returns contr_agent")
+     * @OA\Get(tags={"contr_agent"})
+     * @OA\Response(response=200,description="Returns contr_agent")
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
@@ -59,8 +59,8 @@ final class ContrAgentApiController extends AbstractApiController
 
     /**
      * @Rest\Get("/api/contr_agent/column_defs", options={"expose"=true}, name="api_column_defs_contr_agent")
-     * @SWG\Get(tags={"contr_agent"})
-     * @SWG\Response(response=200,description="Returns column_defs contr_agent")
+     * @OA\Get(tags={"contr_agent"})
+     * @OA\Response(response=200,description="Returns column_defs contr_agent")
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */

@@ -3,6 +3,7 @@
 
 namespace Evrinoma\ContrAgentBundle\DependencyInjection;
 
+use Evrinoma\ContrAgentBundle\EvrinomaContrAgentBundle;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -96,7 +97,7 @@ class EvrinomaContrAgentExtension extends Extension
 //region SECTION: Getters/Setters
     public function getAlias()
     {
-        return 'contr_agent';
+        return EvrinomaContrAgentBundle::CONTR_AGENT_BUNDLE;
     }
 //endregion Getters/Setters
 }

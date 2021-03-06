@@ -12,6 +12,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class EvrinomaContrAgentBundle extends Bundle
 {
 //region SECTION: Getters/Setters
+    public const CONTR_AGENT_BUNDLE = 'contr_agent';
+
     public function build(ContainerBuilder $container)
     {
         parent::build($container);

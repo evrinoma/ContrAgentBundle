@@ -3,9 +3,9 @@
 namespace Evrinoma\ContrAgentBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use Evrinoma\UtilsBundle\Entity\ActiveInterface;
 use Evrinoma\UtilsBundle\Entity\ActiveTrait;
 use Evrinoma\UtilsBundle\Entity\CreateUpdateAtTrait;
-use JMS\Serializer\Annotation\Type;
 
 /**
  * Class AbstractBaseContrAgent
@@ -13,7 +13,7 @@ use JMS\Serializer\Annotation\Type;
  * @package Evrinoma\ContrAgentBundle\Model
  * @ORM\MappedSuperclass
  */
-abstract class AbstractBaseContrAgent
+abstract class AbstractBaseContrAgent implements ActiveInterface
 {
     use ActiveTrait, CreateUpdateAtTrait;
 

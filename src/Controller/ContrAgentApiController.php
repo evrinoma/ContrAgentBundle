@@ -54,7 +54,7 @@ final class ContrAgentApiController extends AbstractApiController
      */
     public function projectAction()
     {
-        return $this->json($this->contrAgentManager->setRestSuccessOk()->getAll(), $this->contrAgentManager->getRestStatus());
+        return $this->json($this->contrAgentManager->setRestOk()->getAll(), $this->contrAgentManager->getRestStatus());
     }
 
     /**
@@ -66,6 +66,6 @@ final class ContrAgentApiController extends AbstractApiController
      */
     public function projectColumnDefsAction()
     {
-        return $this->json($this->contrAgentManager->setRestSuccessOk()->getColumnDefs(), $this->contrAgentManager->getRestStatus());
+        return $this->json($this->contrAgentManager->setRestOk()->getColumnDefs(), $this->contrAgentManager->getRestStatus());
     }
 }

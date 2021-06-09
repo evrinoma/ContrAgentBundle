@@ -11,6 +11,6 @@ use Evrinoma\ContrAgentBundle\Model\AbstractBaseContrAgent;
  * @ORM\Table(name="contragent")
  * @ORM\Entity
  */
-class BaseContrAgent extends AbstractBaseContrAgent
+    class BaseContrAgent extends AbstractBaseContrAgent
 {
 }

@@ -51,7 +51,7 @@ class ContrAgentManager extends AbstractEntityManager
         if ($projectDto) {
             $this->setData($this->repository->setDto($projectDto)->findProject());
         } else {
-            $this->setRestClientErrorBadRequest();
+            $this->setRestBadRequest();
         }
 
         return $this;

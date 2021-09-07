@@ -4,6 +4,7 @@
 namespace Evrinoma\ContrAgentBundle\DependencyInjection;
 
 use Evrinoma\ContrAgentBundle\EvrinomaContrAgentBundle;
+use Evrinoma\UtilsBundle\DependencyInjection\HelperTrait;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -18,7 +19,9 @@ use Symfony\Component\DependencyInjection\Reference;
  */
 class EvrinomaContrAgentExtension extends Extension
 {
-    const ENTITY_BASE_CONTR_AGENT = 'Evrinoma\ContrAgentBundle\Entity\BaseContrAgent';
+    use HelperTrait;
+
+    public const ENTITY_BASE_CONTR_AGENT = 'Evrinoma\ContrAgentBundle\Entity\BaseContrAgent';
 
     /**
      * @var array
@@ -30,35 +33,6 @@ class EvrinomaContrAgentExtension extends Extension
         ),
     );
 
-    protected function remapParameters(array $config, ContainerBuilder $container, array $map)
-    {
-        foreach ($map as $name => $paramName) {
-            if (array_key_exists($name, $config)) {
-                $container->setParameter($paramName, $config[$name]);
-            }
-        }
-    }
-
-    protected function remapParametersNamespaces(array $config, ContainerBuilder $container, array $namespaces)
-    {
-        foreach ($namespaces as $ns => $map) {
-            if ($ns) {
-                if (!array_key_exists($ns, $config)) {
-                    continue;
-                }
-                $namespaceConfig = $config[$ns];
-            } else {
-                $namespaceConfig = $config;
-            }
-            if (is_array($map)) {
-                $this->remapParameters($namespaceConfig, $container, $map);
-            } else {
-                foreach ($namespaceConfig as $name => $value) {
-                    $container->setParameter(sprintf($map, $name), $value);
-                }
-            }
-        }
-    }
 
 //region SECTION: Public
     public function load(array $configs, ContainerBuilder $container)
@@ -81,8 +55,8 @@ class EvrinomaContrAgentExtension extends Extension
         }
 
         $this->remapParametersNamespaces(
-            $config,
             $container,
+            $config,
             [
                 '' => [
                     'db_driver'           => 'evrinoma.'.$this->getAlias().'.storage',
